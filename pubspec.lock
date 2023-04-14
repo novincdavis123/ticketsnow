@@ -73,6 +73,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  device_frame:
+    dependency: transitive
+    description:
+      name: device_frame
+      sha256: afe76182aec178d171953d9b4a50a43c57c7cf3c77d8b09a48bf30c8fa04dd9d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
+  device_preview:
+    dependency: "direct main"
+    description:
+      name: device_preview
+      sha256: "2f097bf31b929e15e6756dbe0ec1bcb63952ab9ed51c25dc5a2c722d2b21fdaf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   easy_localization:
     dependency: "direct main"
     description:
@@ -157,6 +173,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  freezed_annotation:
+    dependency: transitive
+    description:
+      name: freezed_annotation
+      sha256: aeac15850ef1b38ee368d4c53ba9a847e900bb2c53a4db3f6881cbb3cb684338
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   google_nav_bar:
     dependency: "direct main"
     description:
@@ -181,6 +205,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.5"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: c33da08e136c3df0190bd5bbe51ae1df4a7d96e7954d1d7249fea2968a72d317
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.8.0"
   lints:
     dependency: transitive
     description:
@@ -213,6 +245,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -269,6 +309,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.5"
   shared_preferences:
     dependency: transitive
     description:
@@ -378,6 +426,70 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  url_launcher:
+    dependency: transitive
+    description:
+      name: url_launcher
+      sha256: "75f2846facd11168d007529d6cd8fcb2b750186bea046af9711f10b907e1587e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.10"
+  url_launcher_android:
+    dependency: transitive
+    description:
+      name: url_launcher_android
+      sha256: dd729390aa936bf1bdf5cd1bc7468ff340263f80a2c4f569416507667de8e3c8
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.26"
+  url_launcher_ios:
+    dependency: transitive
+    description:
+      name: url_launcher_ios
+      sha256: "9af7ea73259886b92199f9e42c116072f05ff9bea2dcb339ab935dfc957392c2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.4"
+  url_launcher_linux:
+    dependency: transitive
+    description:
+      name: url_launcher_linux
+      sha256: "206fb8334a700ef7754d6a9ed119e7349bc830448098f21a69bf1b4ed038cabc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.4"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      sha256: "0ef2b4f97942a16523e51256b799e9aa1843da6c60c55eefbfa9dbc2dcb8331a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.4"
+  url_launcher_platform_interface:
+    dependency: transitive
+    description:
+      name: url_launcher_platform_interface
+      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
+  url_launcher_web:
+    dependency: transitive
+    description:
+      name: url_launcher_web
+      sha256: "81fe91b6c4f84f222d186a9d23c73157dc4c8e1c71489c4d08be1ad3b228f1aa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.16"
+  url_launcher_windows:
+    dependency: transitive
+    description:
+      name: url_launcher_windows
+      sha256: a83ba3607a507758669cfafb03f9de09bf6e6280c14d9b9cb18f013e406dcacd
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
   vector_math:
     dependency: transitive
     description:
@@ -386,6 +498,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  webview_flutter:
+    dependency: transitive
+    description:
+      name: webview_flutter
+      sha256: "47663d51a9061451aa3880a214ee9a65dcbb933b77bc44388e194279ab3ccaf6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.7"
+  webview_flutter_android:
+    dependency: transitive
+    description:
+      name: webview_flutter_android
+      sha256: "5906c9aa8c88ed372b2ad3c88c942790b4fb16f73fdd1c0647b4d747d9cf5b3f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.4.5"
+  webview_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: webview_flutter_platform_interface
+      sha256: "1939c39e2150fb4d30fd3cc59a891a49fed9935db53007df633ed83581b6117b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
+  webview_flutter_wkwebview:
+    dependency: transitive
+    description:
+      name: webview_flutter_wkwebview
+      sha256: "9a78d963cce191dd6a9df547301fc5c008bf3dae95a323ec281fff1284e0a037"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.4"
   win32:
     dependency: transitive
     description:
@@ -402,6 +546,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  youtube_player_iframe:
+    dependency: "direct main"
+    description:
+      name: youtube_player_iframe
+      sha256: d7aec9083430db4e5da83a3b5d7b7fcbb93cfa027d9f680ce3c7e7cd20724305
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.4"
+  youtube_player_iframe_web:
+    dependency: transitive
+    description:
+      name: youtube_player_iframe_web
+      sha256: c7020816031600349b56d2729d4e8be011fcb723ff7dc2dd0cdf72096a0e5ff4
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
 sdks:
   dart: ">=2.19.4 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.3.0"

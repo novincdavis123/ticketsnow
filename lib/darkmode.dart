@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:ticketsnow/screens/Homescreen.dart';
 import 'package:ticketsnow/screens/home.dart';
 
 class Darkmode extends StatelessWidget {
@@ -18,10 +19,11 @@ class Darkmode extends StatelessWidget {
       ),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
+        useInheritedMediaQuery: true,
         debugShowCheckedModeBanner: false,
         theme: theme,
         darkTheme: darkTheme,
-        home: Musify(),
+        home: Home(),
       ),
     );
   }
