@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+import 'package:ticketsnow/screens/accounttab.dart';
 import 'package:ticketsnow/screens/hometab.dart';
 
 class Home extends StatefulWidget {
@@ -11,9 +12,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final tabs = [
-    SizedBox(height: 600, width: 500,child:Homepage()),
-    Center(child: Text('Bookmarks')),
-    Center(child: Text('Accont')),
+    SizedBox(height: 600, width: 500, child: Homepage()),
+    Center(child: Text('events')),
+    SizedBox(height: 600, width: 500, child: Account()),
   ];
   int _selectedIndex = 0;
   @override
@@ -34,7 +35,8 @@ class _HomeState extends State<Home> {
               )),
               actions: [Icon(Icons.menu)],
             ),
-            SliverList(delegate: SliverChildListDelegate([
+            SliverList(
+                delegate: SliverChildListDelegate([
               tabs[_selectedIndex],
             ]))
           ],
