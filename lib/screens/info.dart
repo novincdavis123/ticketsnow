@@ -68,31 +68,39 @@ class _InfoState extends State<Info> {
         ModalRoute.of(context)?.settings.arguments; // id from previous page
     final product =
         dummyProducts.firstWhere((element) => element["id"] == productId);
-    return Material(
-      child: YoutubePlayerScaffold(
-        builder: (ctx, player) => SingleChildScrollView(
-          child: Column(
-            children: [
-              TextField(controller: _txtController),
-              ElevatedButton(
-                  onPressed: () {
-                    _txtController.text =
-                        product["url"];
-                  },
-                  child: Text('pl')),
-              ElevatedButton(onPressed: _play, child: Text('play')),
-              player,
-              Container(
-                height: 200,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(product["image"]))),
-              ),
-            ],
+    return SafeArea(
+      child: Material(
+        child: YoutubePlayerScaffold(
+          builder: (ctx, player) => SingleChildScrollView(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          _txtController.text = product["url"];
+                        },
+                        child: Text('pl')),
+                    ElevatedButton(onPressed: _play, child: Text('play')),
+                  ],
+                ),
+                player,
+                Text(
+                  product["name"],
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(product["image"]))),
+                ),
+              ],
+            ),
           ),
+          controller: _ytController,
         ),
-        controller: _ytController,
       ),
     );
   }
