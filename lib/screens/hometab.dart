@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:advanced_search/advanced_search.dart';
@@ -118,10 +119,10 @@ class _HomepageState extends State<Homepage> {
               height: height * 0.03,
               width: double.infinity,
               child: ListTile(
-                leading: Text('Recommended Movies',
+                leading: Text('Recommended Movies'.tr().toString(),
                     style: TextStyle(overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold)),
                 trailing: Text(
-                  'See All',
+                  'See All'.tr().toString(),
                   style: TextStyle(
                       color: Colors.pink, overflow: TextOverflow.ellipsis),
                 ),
