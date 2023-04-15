@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   final tabs = [
     SizedBox(height: 600, width: 500, child: Homepage()),
     Center(child: Text('events')),
-    SizedBox(height: 600, width: 500, child: Account()),
+    SizedBox(height: 620, width: 500, child: Account()),
   ];
   int _selectedIndex = 0;
   @override

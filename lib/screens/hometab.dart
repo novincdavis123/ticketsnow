@@ -47,7 +47,7 @@ class _HomepageState extends State<Homepage> {
           SliverList(
               delegate: SliverChildListDelegate([
             Container(
-              margin: const EdgeInsets.only(top: 30.0, left: 30, right: 30),
+              margin: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
               child: AdvancedSearch(
                 searchItems: searchableList,
                 maxElementsToDisplay: 10,
@@ -115,11 +115,11 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             Container(
-              height: height * 0.05,
+              height: height * 0.03,
               width: double.infinity,
               child: ListTile(
                 leading: Text('Recommended Movies',
-                    style: TextStyle(overflow: TextOverflow.ellipsis)),
+                    style: TextStyle(overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold)),
                 trailing: Text(
                   'See All',
                   style: TextStyle(
