@@ -120,7 +120,9 @@ class _HomepageState extends State<Homepage> {
               width: double.infinity,
               child: ListTile(
                 leading: Text('Recommended Movies'.tr().toString(),
-                    style: TextStyle(overflow: TextOverflow.ellipsis,fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.bold)),
                 trailing: Text(
                   'See All'.tr().toString(),
                   style: TextStyle(

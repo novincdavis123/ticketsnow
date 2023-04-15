@@ -21,7 +21,7 @@ Future<void> main() async {
         enabled: !kReleaseMode,
         builder: (context) {
           return MaterialApp(
-            debugShowCheckedModeBanner: false,
+              debugShowCheckedModeBanner: false,
               useInheritedMediaQuery: true,
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,

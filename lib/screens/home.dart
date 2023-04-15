@@ -102,15 +102,16 @@ class _MusifyState extends State<Musify> {
                   leading: Image(
                       image: NetworkImage(
                           'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')),
-                  title:
-                      Text('Hero', style: TextStyle(color: Colors.pink.shade100)),
-                  subtitle:
-                      Text('Taylor Swift', style: TextStyle(color: Colors.white)),
+                  title: Text('Hero',
+                      style: TextStyle(color: Colors.pink.shade100)),
+                  subtitle: Text('Taylor Swift',
+                      style: TextStyle(color: Colors.white)),
                   trailing: Wrap(
                     children: [
                       Icon(Icons.star_border, color: Colors.pink.shade100),
                       SizedBox(width: 10),
-                      Icon(Icons.download_outlined, color: Colors.pink.shade100),
+                      Icon(Icons.download_outlined,
+                          color: Colors.pink.shade100),
                     ],
                   ),
                 ),
@@ -131,7 +132,8 @@ class _MusifyState extends State<Musify> {
                     children: [
                       Icon(Icons.star_border, color: Colors.pink.shade100),
                       SizedBox(width: 10),
-                      Icon(Icons.download_outlined, color: Colors.pink.shade100),
+                      Icon(Icons.download_outlined,
+                          color: Colors.pink.shade100),
                     ],
                   ),
                 ),
@@ -152,7 +154,8 @@ class _MusifyState extends State<Musify> {
                     children: [
                       Icon(Icons.star_border, color: Colors.pink.shade100),
                       SizedBox(width: 10),
-                      Icon(Icons.download_outlined, color: Colors.pink.shade100),
+                      Icon(Icons.download_outlined,
+                          color: Colors.pink.shade100),
                     ],
                   ),
                 ),
@@ -172,7 +175,8 @@ class _MusifyState extends State<Musify> {
                     children: [
                       Icon(Icons.star_border, color: Colors.pink.shade100),
                       SizedBox(width: 10),
-                      Icon(Icons.download_outlined, color: Colors.pink.shade100),
+                      Icon(Icons.download_outlined,
+                          color: Colors.pink.shade100),
                     ],
                   ),
                 ),
@@ -193,7 +197,8 @@ class _MusifyState extends State<Musify> {
                     children: [
                       Icon(Icons.star_border, color: Colors.pink.shade100),
                       SizedBox(width: 10),
-                      Icon(Icons.download_outlined, color: Colors.pink.shade100),
+                      Icon(Icons.download_outlined,
+                          color: Colors.pink.shade100),
                     ],
                   ),
                 ),

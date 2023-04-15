@@ -25,8 +25,8 @@ class Darkmode extends StatelessWidget {
         theme: theme,
         darkTheme: darkTheme,
         routes: {
-      "second": (context) => Info(),
-    },
+          "second": (context) => Info(),
+        },
         home: Home(),
       ),
     );
