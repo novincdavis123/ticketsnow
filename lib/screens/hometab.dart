@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
+import 'package:advanced_search/advanced_search.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -10,6 +11,22 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final List<String> searchableList = [
+    "Orange",
+    "Apple",
+    "Banana",
+    "Mango Orange",
+    "Carrot Apple",
+    "Yellow Watermelon",
+    "Zhe Fruit",
+    "White Oats",
+    "Dates",
+    "Raspberry Blue",
+    "Green Grapes",
+    "Red Grapes",
+    "Dragon Fruit"
+  ];
+
   var size, height, width;
   var images = [
     NetworkImage(
@@ -29,6 +46,52 @@ class _HomepageState extends State<Homepage> {
         slivers: [
           SliverList(
               delegate: SliverChildListDelegate([
+            Container(
+              margin: const EdgeInsets.only(top: 30.0, left: 30, right: 30),
+              child: AdvancedSearch(
+                searchItems: searchableList,
+                maxElementsToDisplay: 10,
+                singleItemHeight: 50,
+                borderColor: Colors.grey,
+                minLettersForSearch: 0,
+                selectedTextColor: Color(0xFF3363D9),
+                fontSize: 14,
+                borderRadius: 12.0,
+                hintText: 'Search Me',
+                cursorColor: Colors.blueGrey,
+                autoCorrect: false,
+                focusedBorderColor: Colors.blue,
+                searchResultsBgColor: Color(0xFAFAFA),
+                disabledBorderColor: Colors.cyan,
+                enabledBorderColor: Colors.black,
+                enabled: true,
+                caseSensitive: false,
+                inputTextFieldBgColor: Colors.white10,
+                clearSearchEnabled: true,
+                itemsShownAtStart: 10,
+                searchMode: SearchMode.CONTAINS,
+                showListOfResults: true,
+                unSelectedTextColor: Colors.black54,
+                verticalPadding: 10,
+                horizontalPadding: 10,
+                hideHintOnTextInputFocus: true,
+                hintTextColor: Colors.grey,
+                searchItemsWidget: searchWidget,
+                onItemTap: (index, value) {
+                  print("selected item Index is $index");
+                },
+                onSearchClear: () {
+                  print("Cleared Search");
+                },
+                onSubmitted: (value, value2) {
+                  print("Submitted: " + value);
+                },
+                onEditingProgress: (value, value2) {
+                  print("TextEdited: " + value);
+                  print("LENGTH: " + value2.length.toString());
+                },
+              ),
+            ),
             CarouselSlider(
               items: List.generate(3, (index) {
                 return Padding(
@@ -55,45 +118,70 @@ class _HomepageState extends State<Homepage> {
               height: height * 0.05,
               width: double.infinity,
               child: ListTile(
-                leading: Text('Recommended Movies',style: TextStyle(overflow: TextOverflow.ellipsis)),
+                leading: Text('Recommended Movies',
+                    style: TextStyle(overflow: TextOverflow.ellipsis)),
                 trailing: Text(
                   'See All',
-                  style: TextStyle(color: Colors.pink,overflow: TextOverflow.ellipsis),
+                  style: TextStyle(
+                      color: Colors.pink, overflow: TextOverflow.ellipsis),
                 ),
               ),
             ),
-             ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.all(15),
-            children: dummyProducts.map((product) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(product["image"])),
+            ListView(
+              shrinkWrap: true,
+              padding: EdgeInsets.all(15),
+              children: dummyProducts.map((product) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(product["image"])),
+                    ),
+                    child: ListTile(
+                      title: Text(product["name"],
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                      onTap: () => goToSecond(context, product["id"]),
+                    ),
                   ),
-                  child: ListTile(
-                    title: Text(product["name"],
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                    onTap: () => goToSecond(context, product["id"]),
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
+                );
+              }).toList(),
+            ),
           ]))
         ],
       ),
     );
   }
+
   void goToSecond(BuildContext context, productId) {
     Navigator.pushNamed(context, "second", arguments: productId);
+  }
+
+  Widget searchWidget(String text) {
+    return ListTile(
+      title: Text(
+        text.length > 3 ? text.substring(0, 3) : text,
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            color: Colors.indigoAccent),
+      ),
+      subtitle: Text(
+        text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontWeight: FontWeight.normal,
+          fontSize: 12,
+          color: Colors.black26,
+        ),
+      ),
+    );
   }
 }
