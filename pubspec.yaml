@@ -45,6 +45,7 @@ dependencies:
   youtube_player_iframe: ^4.0.4
   image_picker: ^0.8.7+2
   advanced_search: ^2.2.3
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

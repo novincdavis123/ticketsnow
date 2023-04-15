@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:ticketsnow/screens/accounttab.dart';
@@ -11,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool Switchval = false;
   final tabs = [
     SizedBox(height: 600, width: 500, child: Homepage()),
     Center(child: Text('events')),
@@ -33,7 +35,18 @@ class _HomeState extends State<Home> {
                 'TicketsNow',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )),
-              actions: [Icon(Icons.menu)],
+              actions: [Switch(
+                onChanged: (bool value) {
+                  setState(() {
+                    this.Switchval = value;
+                  });
+                  if (Switchval == false) {
+                    AdaptiveTheme.of(context).setLight();
+                  } else {
+                    AdaptiveTheme.of(context).setDark();
+                  }
+                },
+                value: this.Switchval),],
             ),
             SliverList(
                 delegate: SliverChildListDelegate([
