@@ -2,8 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 import 'package:ticketsnow/darkmode.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:ticketsnow/demo/provider/prov/movie_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +27,10 @@ Future<void> main() async {
               useInheritedMediaQuery: true,
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
-              home: MyApp());
+              home: ChangeNotifierProvider<MovieProvider>(
+    child: MyApp(),
+    create: (_) => MovieProvider(), // Create a new ChangeNotifier object
+  ));
         }),
   ));
 }

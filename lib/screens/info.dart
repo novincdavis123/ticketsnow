@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketsnow/demo/provider/screens/homescreen.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:ticketsnow/screens/ticketpage.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -100,7 +101,7 @@ class _InfoState extends State<Info> {
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => Ticket()));
+                          MaterialPageRoute(builder: (context) => HomeScreenprovider()));
                     },
                     child: Text('Book Tickets'))
               ],
