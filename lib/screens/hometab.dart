@@ -123,11 +123,13 @@ class _HomepageState extends State<Homepage> {
                     style: TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeight.bold)),
-                trailing: Text(
-                  'See All'.tr().toString(),
-                  style: TextStyle(
-                      color: Colors.pink, overflow: TextOverflow.ellipsis),
-                ),
+                trailing: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See All'.tr().toString(),
+                      style: TextStyle(
+                          color: Colors.pink, overflow: TextOverflow.ellipsis),
+                    )),
               ),
             ),
             ListView(

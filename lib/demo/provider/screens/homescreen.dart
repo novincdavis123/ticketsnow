@@ -20,7 +20,7 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider'),
+        title: const Text('Ticket Counter'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -35,9 +35,9 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                   ),
                 );
               },
-              icon: const Icon(Icons.favorite),
+              icon: const Icon(Icons.check_box_outline_blank,color: Colors.green,),
               label: Text(
-                "Go to my list (${myList.length})",
+                "Booked Tickets (${myList.length})",
                 style: const TextStyle(fontSize: 24),
               ),
               style: ElevatedButton.styleFrom(
@@ -66,9 +66,9 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                               subtitle: Text(currentMovie.runtime ?? 'No information'),
                               trailing: IconButton(
                                 icon: Icon(
-                                  Icons.favorite,
+                                  Icons.check_box_outline_blank,
                                   color: myList.contains(currentMovie)
-                                      ? Colors.red
+                                      ? Colors.green
                                       : Colors.white,
                                   size: 30,
                                 ),
