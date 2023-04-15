@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketsnow/screens/dummy_movies.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -60,10 +61,39 @@ class _HomepageState extends State<Homepage> {
                   style: TextStyle(color: Colors.pink,overflow: TextOverflow.ellipsis),
                 ),
               ),
-            )
+            ),
+             ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.all(15),
+            children: dummyProducts.map((product) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(product["image"])),
+                  ),
+                  child: ListTile(
+                    title: Text(product["name"],
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                    onTap: () => goToSecond(context, product["id"]),
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
           ]))
         ],
       ),
     );
+  }
+  void goToSecond(BuildContext context, productId) {
+    Navigator.pushNamed(context, "second", arguments: productId);
   }
 }

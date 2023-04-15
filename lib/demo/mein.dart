@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/demo/new.dart';
 import 'package:ticketsnow/screens/Homescreen.dart';
+import 'package:ticketsnow/screens/info.dart';
 
 void main() {
   runApp(DevicePreview(
@@ -13,6 +14,9 @@ void main() {
             useInheritedMediaQuery: true,
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,
+            routes: {
+      "second": (context) => Info(),
+    },
             home: Home());
       }));
 }
