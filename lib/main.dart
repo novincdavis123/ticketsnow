@@ -28,9 +28,10 @@ Future<void> main() async {
               locale: DevicePreview.locale(context),
               builder: DevicePreview.appBuilder,
               home: ChangeNotifierProvider<MovieProvider>(
-    child: MyApp(),
-    create: (_) => MovieProvider(), // Create a new ChangeNotifier object
-  ));
+                child: MyApp(),
+                create: (_) =>
+                    MovieProvider(), // Create a new ChangeNotifier object
+              ));
         }),
   ));
 }
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: Darkmode(),
+      home: MusiSplash(),
     );
   }
 }

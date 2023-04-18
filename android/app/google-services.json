@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "82063306615",
+    "project_id": "ticketsnow-861b8",
+    "storage_bucket": "ticketsnow-861b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82063306615:android:e627ad7f9fbd913b6e7b72",
+        "android_client_info": {
+          "package_name": "com.example.ticketsnow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82063306615-0kibtke5bklhrpek10vh2k9mag40i65l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBro0Z9mIgK7YY6RJb1YMqEI3T8AT5e7Bc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82063306615-0kibtke5bklhrpek10vh2k9mag40i65l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
