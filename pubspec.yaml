@@ -40,7 +40,6 @@ dependencies:
   adaptive_theme: ^3.2.0
   carousel_slider: ^4.2.1
   flashy_tab_bar2: ^0.0.6
-  google_nav_bar: ^5.0.6
   device_preview: ^1.1.0
   youtube_player_iframe: ^4.0.4
   image_picker: ^0.8.7+2

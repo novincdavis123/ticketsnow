@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:ticketsnow/screens/Homescreen.dart';
-import 'package:ticketsnow/screens/home.dart';
 import 'package:ticketsnow/screens/info.dart';
 
 class Darkmode extends StatelessWidget {
