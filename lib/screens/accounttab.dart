@@ -44,11 +44,6 @@ class _AccountState extends State<Account> {
               child: ElevatedButton(
                   onPressed: () => pickImage(), child: Text('Gallery')),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                  onPressed: () => pickImage(), child: Text('camera')),
-            ),
           ]))
         ],
       ),
