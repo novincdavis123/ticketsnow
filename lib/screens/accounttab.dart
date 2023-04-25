@@ -42,7 +42,90 @@ class _AccountState extends State<Account> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                  onPressed: () => pickImage(), child: Text('Gallery')),
+                  onPressed: () => pickImage(),
+                  child: Text('Pick Image From Gallery')),
+            ),
+            ListView(
+              shrinkWrap: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.privacy_tip),
+                          title: Text('Privacy'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.history),
+                          title: Text('Purchase History'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.help_outline),
+                          title: Text('Help & Support'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.settings),
+                          title: Text('Settings'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.person_add),
+                          title: Text('Invite a friend'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.info),
+                          title: Text('Information'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 224, 219, 219),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: ListTile(
+                          leading: Icon(Icons.book),
+                          title: Text('About'),
+                          trailing: Icon(Icons.arrow_forward_ios))),
+                ),
+              ],
             ),
           ]))
         ],
