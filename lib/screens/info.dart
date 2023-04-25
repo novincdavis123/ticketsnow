@@ -109,11 +109,13 @@ class _InfoState extends State<Info> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
-                                  height: 150,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(product["im"][index])))),
+                                child: CircleAvatar(
+                                  radius: 50,
+                                  backgroundImage:
+                                      NetworkImage(product["im"][index]),
+                                ),
+                                height: 100,
+                              ),
                               Text(
                                 product["cast"][index],
                                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -121,7 +123,7 @@ class _InfoState extends State<Info> {
                             ]));
                   }),
                   options: CarouselOptions(
-                    height: 200,
+                    height: 130,
                     pauseAutoPlayInFiniteScroll: true,
                     autoPlay: false,
                     viewportFraction: .4,
