@@ -15,7 +15,7 @@ class _LogState extends State<Log> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -64,7 +64,9 @@ class _LogState extends State<Log> {
                 onPressed: () {
                   String mail = email.text.toString();
                   String pwd = pass.text.toString();
-                  AuthHelper().signup(email: mail, password: pwd).then((result) {
+                  AuthHelper()
+                      .signup(email: mail, password: pwd)
+                      .then((result) {
                     if (result == null) {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => Firelog()));

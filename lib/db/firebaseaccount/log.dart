@@ -81,12 +81,15 @@ class _FirelogState extends State<Firelog> {
                 },
                 child: Text('Login')),
           ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Log()));
-              },
-              child: Text('Regnow'))
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Log()));
+                },
+                child: Text('Regnow')),
+          )
         ],
       ),
     );

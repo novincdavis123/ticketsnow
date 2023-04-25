@@ -76,15 +76,13 @@ class _InfoState extends State<Info> {
           builder: (ctx, player) => SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          _txtController.text = product["url"];
-                        },
-                        child: Text('pl')),
-                    ElevatedButton(onPressed: _play, child: Text('play')),
-                  ],
+                Center(
+                  child: ElevatedButton(
+                      onLongPress: () {
+                        _txtController.text = product["url"];
+                      },
+                      onPressed: _play,
+                      child: Text('play')),
                 ),
                 player,
                 Text(
@@ -98,10 +96,43 @@ class _InfoState extends State<Info> {
                           fit: BoxFit.cover,
                           image: NetworkImage(product["image"]))),
                 ),
+                Text(
+                  product["description"],
+                ),
+                CarouselSlider(
+                  items: List.generate(3, (index) {
+                    return Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                  height: 150,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(product["im"][index])))),
+                              Text(
+                                product["cast"][index],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ]));
+                  }),
+                  options: CarouselOptions(
+                    height: 200,
+                    pauseAutoPlayInFiniteScroll: true,
+                    autoPlay: false,
+                    viewportFraction: .4,
+                    aspectRatio: 16 / 7,
+                    initialPage: 2,
+                  ),
+                ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => HomeScreenprovider()));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => HomeScreenprovider()));
                     },
                     child: Text('Book Tickets'))
               ],

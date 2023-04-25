@@ -1,5 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:advanced_search/advanced_search.dart';
@@ -12,6 +13,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  bool Switchval = false;
   final List<String> searchableList = [
     "Orange",
     "Apple",
@@ -45,6 +47,42 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          SliverAppBar(
+              leading: Wrap(children: [
+                ElevatedButton(
+                    onPressed: () async {
+                      context.locale = Locale('en', 'GB');
+                    },
+                    onLongPress: () async {
+                      context.locale = Locale('en', 'HI');
+                    },
+                    child: Text('Lan')),
+                TextButton(
+                  child: Text('City>'.tr().toString(),
+                      style: TextStyle(color: Colors.green)),
+                  onPressed: () {},
+                ),
+              ]),
+              title: Center(
+                  child: Text(
+                'TicketsNow'.tr().toString().toUpperCase(),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              )),
+              actions: [
+                Switch(
+                    onChanged: (bool value) {
+                      setState(() {
+                        this.Switchval = value;
+                      });
+                      if (Switchval == false) {
+                        AdaptiveTheme.of(context).setLight();
+                      } else {
+                        AdaptiveTheme.of(context).setDark();
+                      }
+                    },
+                    value: this.Switchval),
+              ],
+            ),
           SliverList(
               delegate: SliverChildListDelegate([
             Container(
