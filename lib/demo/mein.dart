@@ -1,7 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ticketsnow/demo/new.dart';
 import 'package:ticketsnow/screens/Homescreen.dart';
 import 'package:ticketsnow/screens/info.dart';
 

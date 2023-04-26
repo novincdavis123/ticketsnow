@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/db/firebaseaccount/FireHelper.dart';
 import 'package:ticketsnow/db/firebaseaccount/signup.dart';
-import 'package:ticketsnow/db/firebaseaccount/welcome.dart';
+import 'package:ticketsnow/screens/Homescreen.dart';
 
 class Firelog extends StatefulWidget {
   @override
@@ -70,7 +70,7 @@ class _FirelogState extends State<Firelog> {
                       .then((result) {
                     if (result == null) {
                       Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => Welcome()));
+                          MaterialPageRoute(builder: (context) => Home()));
                     } else {
                       ScaffoldMessenger.of(context)
                           .showSnackBar(SnackBar(content: Text(result)));

@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ticketsnow/db/firebaseaccount/FireHelper.dart';
+import 'package:ticketsnow/db/firebaseaccount/log.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -129,6 +131,13 @@ class _AccountState extends State<Account> {
             ),
           ]))
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AuthHelper().signOut().then((_) => Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => Firelog())));
+        },
+        child: Text('Logout'),
       ),
     );
   }
