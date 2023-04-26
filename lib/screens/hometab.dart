@@ -158,7 +158,9 @@ class _HomepageState extends State<Homepage> {
                         overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeight.bold)),
                 trailing: TextButton(
-                    onPressed: () {},
+                    onPressed:
+                          () => launchUrl(
+                          Uri.parse('https://psa.re/category/movie/')),
                     child: Text(
                       'See All'.tr().toString(),
                       style: TextStyle(
