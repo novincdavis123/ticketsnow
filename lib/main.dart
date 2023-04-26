@@ -21,20 +21,22 @@ Future<void> main() async {
     path: 'assets/translations',
     saveLocale: true,
     fallbackLocale: Locale('en', 'US'),
-    child: DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) {
-          return MaterialApp(
+    child:
+  //DevicePreview(
+  //       enabled: !kReleaseMode,
+  //       builder: (context) {
+          //return
+      MaterialApp(
               debugShowCheckedModeBanner: false,
               useInheritedMediaQuery: true,
-              locale: DevicePreview.locale(context),
-              builder: DevicePreview.appBuilder,
+              // locale: DevicePreview.locale(context),
+              // builder: DevicePreview.appBuilder,
               home: ChangeNotifierProvider<MovieProvider>(
                 child: MyApp(),
                 create: (_) =>
                     MovieProvider(), // Create a new ChangeNotifier object
-              ));
-        }),
+              ))
+        //}),
   ));
 }
 

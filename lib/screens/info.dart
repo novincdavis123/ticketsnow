@@ -94,7 +94,7 @@ class _InfoState extends State<Info> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(product["image"]))),
+                          image: AssetImage(product["image"]))),
                 ),
                 Text(
                   product["description"],
@@ -112,7 +112,7 @@ class _InfoState extends State<Info> {
                                 child: CircleAvatar(
                                   radius: 50,
                                   backgroundImage:
-                                      NetworkImage(product["im"][index]),
+                                      AssetImage(product["im"][index]),
                                 ),
                                 height: 100,
                               ),
