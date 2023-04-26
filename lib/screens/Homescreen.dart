@@ -13,9 +13,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final tabs = [
-    SizedBox(height: 750, width: 500, child: Homepage()),
-    SizedBox(height: 750, width: 500, child: Event()),
-    SizedBox(height: 750, width: 500, child: Account()),
+    SizedBox(height: 800, width: 500, child: Homepage()),
+    SizedBox(height: 820, width: 500, child: Event()),
+    SizedBox(height: 800, width: 500, child: Account()),
   ];
   int _selectedIndex = 0;
   @override

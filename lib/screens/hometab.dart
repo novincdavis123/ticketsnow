@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:advanced_search/advanced_search.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -15,19 +16,19 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   bool Switchval = false;
   final List<String> searchableList = [
-    "Orange",
-    "Apple",
-    "Banana",
-    "Mango Orange",
-    "Carrot Apple",
-    "Yellow Watermelon",
-    "Zhe Fruit",
-    "White Oats",
-    "Dates",
-    "Raspberry Blue",
-    "Green Grapes",
-    "Red Grapes",
-    "Dragon Fruit"
+    "Avatar",
+    "Bahubali",
+    "Kgf",
+    "War",
+    "Pathaan",
+    "Krish",
+    "Romancham",
+    "Aquaman",
+    "Batman",
+    "Joker",
+    "Avengers",
+    "Spiderman",
+    "Superman"
   ];
 
   var size, height, width;
@@ -48,21 +49,14 @@ class _HomepageState extends State<Homepage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            leading: Wrap(children: [
-              ElevatedButton(
-                  onPressed: () async {
-                    context.locale = Locale('en', 'GB');
-                  },
-                  onLongPress: () async {
-                    context.locale = Locale('en', 'HI');
-                  },
-                  child: Text('Lan')),
-              TextButton(
-                child: Text('City>'.tr().toString(),
-                    style: TextStyle(color: Colors.green)),
-                onPressed: () {},
-              ),
-            ]),
+            leading: ElevatedButton(
+                onPressed: () async {
+                  context.locale = Locale('en', 'GB');
+                },
+                onLongPress: () async {
+                  context.locale = Locale('en', 'HI');
+                },
+                child: Text('Lan')),
             title: Center(
                 child: Text(
               'TicketsNow'.tr().toString().toUpperCase(),
@@ -135,11 +129,13 @@ class _HomepageState extends State<Homepage> {
               items: List.generate(3, (index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                            image: images[index], fit: BoxFit.cover)),
+                  child: InkWell(onTap: ()=>launchUrl(Uri.parse('https://wynk.in/music')),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                              image: images[index], fit: BoxFit.cover)),
+                    ),
                   ),
                 );
               }),

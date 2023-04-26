@@ -13,20 +13,20 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   runApp(EasyLocalization(
-    supportedLocales: [
-      Locale('en', 'US'),
-      Locale('en', 'GB'),
-      Locale('en', 'HI'),
-    ],
-    path: 'assets/translations',
-    saveLocale: true,
-    fallbackLocale: Locale('en', 'US'),
-    child:
-  //DevicePreview(
-  //       enabled: !kReleaseMode,
-  //       builder: (context) {
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('en', 'GB'),
+        Locale('en', 'HI'),
+      ],
+      path: 'assets/translations',
+      saveLocale: true,
+      fallbackLocale: Locale('en', 'US'),
+      child:
+          //DevicePreview(
+          //       enabled: !kReleaseMode,
+          //       builder: (context) {
           //return
-      MaterialApp(
+          MaterialApp(
               debugShowCheckedModeBanner: false,
               useInheritedMediaQuery: true,
               // locale: DevicePreview.locale(context),
@@ -36,8 +36,8 @@ Future<void> main() async {
                 create: (_) =>
                     MovieProvider(), // Create a new ChangeNotifier object
               ))
-        //}),
-  ));
+      //}),
+      ));
 }
 
 class MyApp extends StatelessWidget {
@@ -67,7 +67,7 @@ class MusiSplash extends StatelessWidget {
             theme: FlameSplashTheme.dark,
             showBefore: (BuildContext context) {
               return Text(
-                "To be shown before flame animation",
+                "Special Thanks\nNovin\nLuminar Technolab\nGoogle\nMicrosoft\n\n\nInspiratons\nBookmyshow\nTicketsnew",
                 style: TextStyle(color: Colors.amber),
               );
             },

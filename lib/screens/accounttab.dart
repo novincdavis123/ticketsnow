@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -123,8 +124,11 @@ class _AccountState extends State<Account> {
                           color: Color.fromARGB(255, 224, 219, 219),
                           borderRadius: BorderRadius.circular(30)),
                       child: ListTile(
+                          onTap: () async {
+                            context.locale = Locale('en', 'US');
+                          },
                           leading: Icon(Icons.book),
-                          title: Text('About'),
+                          title: Text('Reset Language'),
                           trailing: Icon(Icons.arrow_forward_ios))),
                 ),
               ],
