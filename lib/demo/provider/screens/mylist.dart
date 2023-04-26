@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketsnow/demo/provider/prov/movie_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyListScreen extends StatefulWidget {
   const MyListScreen({Key? key}) : super(key: key);
@@ -12,7 +13,6 @@ class MyListScreen extends StatefulWidget {
 class _MyListScreenState extends State<MyListScreen> {
   @override
   Widget build(BuildContext context) {
-
     final _myList = context.watch<MovieProvider>().myList;
 
     return Scaffold(
@@ -41,6 +41,10 @@ class _MyListScreenState extends State<MyListScreen> {
               ),
             );
           }),
+      floatingActionButton: FloatingActionButton.large(
+          child: Text('Payments'),
+          onPressed: () => launchUrl(Uri.parse(
+              'https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fpay.google.com%2Fpayments%2Fhome%23&followup=https%3A%2F%2Fpay.google.com%2Fpayments%2Fhome&osid=1&passive=1209600&service=billing&ifkv=AQMjQ7TwMyPmfgHpx4R01ZRuAL6MkAUPGNAKi4p6kxJAYqCMZ_JTTOCE_Ecp7yB4HLvvwJQI7iNUDw&flowName=GlifWebSignIn&flowEntry=ServiceLogin'))),
     );
   }
 }
