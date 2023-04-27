@@ -1,11 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketsnow/darkmode.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:ticketsnow/demo/provider/prov/movie_provider.dart';
 
 Future<void> main() async {
@@ -21,14 +19,23 @@ Future<void> main() async {
       path: 'assets/translations',
       saveLocale: true,
       fallbackLocale: Locale('en', 'US'),
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          useInheritedMediaQuery: true,
-          home: ChangeNotifierProvider<MovieProvider>(
-            child: MyApp(),
-            create: (_) =>
-                MovieProvider(), // Create a new ChangeNotifier object
-          ))));
+      child:
+          //DevicePreview(
+          //       enabled: !kReleaseMode,
+          //       builder: (context) {
+          //return
+          MaterialApp(
+              debugShowCheckedModeBanner: false,
+              useInheritedMediaQuery: true,
+              // locale: DevicePreview.locale(context),
+              // builder: DevicePreview.appBuilder,
+              home: ChangeNotifierProvider<MovieProvider>(
+                child: MyApp(),
+                create: (_) =>
+                    MovieProvider(), // Create a new ChangeNotifier object
+              ))
+      //}),
+      ));
 }
 
 class MyApp extends StatelessWidget {
@@ -59,7 +66,7 @@ class MusiSplash extends StatelessWidget {
             showBefore: (BuildContext context) {
               return Text(
                 "Special Thanks\nNovin\nLuminar Technolab\nGoogle\nMicrosoft\n\n\nInspiratons\nBookmyshow\nTicketsnew",
-                style: TextStyle(fontSize: 25,color: Colors.amber),
+                style: TextStyle(color: Colors.amber),
               );
             },
             onFinish: (BuildContext context) => Navigator.of(context)

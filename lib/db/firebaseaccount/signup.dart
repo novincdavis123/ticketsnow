@@ -16,7 +16,7 @@ class _LogState extends State<Log> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
+            image: DecorationImage(fit:BoxFit.fill,
                 image: NetworkImage(
                     'https://images.unsplash.com/photo-1524055988636-436cfa46e59e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJhY2slMjBncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'))),
         child: Column(
@@ -25,8 +25,8 @@ class _LogState extends State<Log> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: 100,
-                width: 300,
+                height: 150,
+                width: 350,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(
