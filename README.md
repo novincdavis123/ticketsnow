@@ -1,6 +1,6 @@
 # ticketsnow
 
-A new Flutter project.
+This is a Movie Ticket booking App created by Novin Davis with the help of Luminar Technolab.
 
 ## Getting Started
 
@@ -14,6 +14,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# Ticketsnow
-
-This is a Movie Ticket booking App created by Novin Davis with the help of Luminar Technolab.
