@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:advanced_search/advanced_search.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../db/firebaseaccount/FireHelper.dart';
+import '../db/firebaseaccount/log.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -49,14 +51,6 @@ class _HomepageState extends State<Homepage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            leading: ElevatedButton(
-                onPressed: () async {
-                  context.locale = Locale('en', 'GB');
-                },
-                onLongPress: () async {
-                  context.locale = Locale('en', 'HI');
-                },
-                child: Text('Lan')),
             title: Center(
                 child: Text(
               'TicketsNow'.tr().toString().toUpperCase(),
@@ -129,7 +123,8 @@ class _HomepageState extends State<Homepage> {
               items: List.generate(3, (index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: InkWell(onTap: ()=>launchUrl(Uri.parse('https://wynk.in/music')),
+                  child: InkWell(
+                    onTap: () => launchUrl(Uri.parse('https://wynk.in/music')),
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -158,9 +153,8 @@ class _HomepageState extends State<Homepage> {
                         overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeight.bold)),
                 trailing: TextButton(
-                    onPressed:
-                          () => launchUrl(
-                          Uri.parse('https://psa.re/category/movie/')),
+                    onPressed: () =>
+                        launchUrl(Uri.parse('https://psa.re/category/movie/')),
                     child: Text(
                       'See All'.tr().toString(),
                       style: TextStyle(
@@ -196,6 +190,102 @@ class _HomepageState extends State<Homepage> {
             ),
           ]))
         ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.orange.shade300, Colors.red.shade900])),
+          child: ListView(children: [
+            const Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60"),
+                ),
+                title: Text("Alan Paul"),
+                subtitle: Text("alanpaul@gmail.com"),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: ListTile(
+                leading: Icon(Icons.space_dashboard_outlined),
+                title: Text('Dashboard'),
+              ),
+            ),
+            ExpansionTile(
+                title: Text('Languages', style: TextStyle(color: Colors.red)),
+                children: [
+                  ListTile(
+                    onTap: () async {
+                      context.locale = Locale('en', 'US');
+                    },
+                    title: Text('English'),
+                  ),
+                  ListTile(
+                    onTap: () async {
+                      context.locale = Locale('en', 'GB');
+                    },
+                    title: Text('Malayalam'),
+                  ),
+                  ListTile(
+                    onTap: () async {
+                      context.locale = Locale('en', 'HI');
+                    },
+                    title: Text('Hindi'),
+                  ),
+                ]),
+            const ListTile(
+              leading: Icon(Icons.people_outline),
+              title: Text('Clients'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.rocket_launch),
+              title: Text('Projects'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.man),
+              title: Text('Patients'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.subscriptions),
+              title: Text('Subscription'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.payments),
+              title: Text('Payments'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.supervised_user_circle_outlined),
+              title: Text('Users'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.local_library_outlined),
+              title: Text('Library'),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  onPressed: () {
+                    AuthHelper().signOut().then((_) =>
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Firelog())));
+                  },
+                  child: const Text('Log out')),
+            ),
+          ]),
+        ),
       ),
     );
   }

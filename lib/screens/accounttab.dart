@@ -124,11 +124,8 @@ class _AccountState extends State<Account> {
                           color: Color.fromARGB(255, 224, 219, 219),
                           borderRadius: BorderRadius.circular(30)),
                       child: ListTile(
-                          onTap: () async {
-                            context.locale = Locale('en', 'US');
-                          },
                           leading: Icon(Icons.book),
-                          title: Text('Reset Language'),
+                          title: Text('About'),
                           trailing: Icon(Icons.arrow_forward_ios))),
                 ),
               ],
