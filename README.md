@@ -1,6 +1,7 @@
 # ticketsnow
 
 This is a Movie Ticket booking App created by Novin Davis with the help of Luminar Technolab.
+![ic_launcher](https://user-images.githubusercontent.com/121224845/234852272-ebf505a6-8cbc-45b2-bbf7-d2e4be483811.png)
 
 # Credits
 
