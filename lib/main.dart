@@ -19,23 +19,14 @@ Future<void> main() async {
       path: 'assets/translations',
       saveLocale: true,
       fallbackLocale: Locale('en', 'US'),
-      child:
-          //DevicePreview(
-          //       enabled: !kReleaseMode,
-          //       builder: (context) {
-          //return
-          MaterialApp(
-              debugShowCheckedModeBanner: false,
-              useInheritedMediaQuery: true,
-              // locale: DevicePreview.locale(context),
-              // builder: DevicePreview.appBuilder,
-              home: ChangeNotifierProvider<MovieProvider>(
-                child: MyApp(),
-                create: (_) =>
-                    MovieProvider(), // Create a new ChangeNotifier object
-              ))
-      //}),
-      ));
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          useInheritedMediaQuery: true,
+          home: ChangeNotifierProvider<MovieProvider>(
+            child: MyApp(),
+            create: (_) =>
+                MovieProvider(), // Create a new ChangeNotifier object
+          ))));
 }
 
 class MyApp extends StatelessWidget {
@@ -66,7 +57,7 @@ class MusiSplash extends StatelessWidget {
             showBefore: (BuildContext context) {
               return Text(
                 "Special Thanks\nNovin\nLuminar Technolab\nGoogle\nMicrosoft\n\n\nInspiratons\nBookmyshow\nTicketsnew",
-                style: TextStyle(color: Colors.amber),
+                style: TextStyle(color: Colors.amber, fontSize: 25),
               );
             },
             onFinish: (BuildContext context) => Navigator.of(context)
