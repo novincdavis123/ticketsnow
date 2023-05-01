@@ -11,11 +11,13 @@ This is a Movie Ticket booking App created by Novin Davis with the help of Lumin
 ![1682594557808](https://user-images.githubusercontent.com/121224845/234848911-95949632-8dc4-415e-bb80-9101dad41056.jpg)
 
 # Registration Screen
-![1682594557801](https://user-images.githubusercontent.com/121224845/234849040-cf2a0dae-9354-430f-a5ba-c4f49956a639.jpg)
+
+![1682659366640](https://user-images.githubusercontent.com/121224845/235061468-a4778843-62b0-4ceb-ad41-77dc5e7ff676.jpg)
 
 # Login Screen
 
-![1682594557795](https://user-images.githubusercontent.com/121224845/234849192-bc7f93b7-6bb6-46af-b880-21280e7c79eb.jpg)
+![1682659366633](https://user-images.githubusercontent.com/121224845/235061561-525b90c4-7fbe-4a72-ba5a-48f629eb51c9.jpg)
+
 
 # Home Screen
 
