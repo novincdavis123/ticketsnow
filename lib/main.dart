@@ -4,7 +4,7 @@ import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketsnow/darkmode.dart';
-import 'package:ticketsnow/demo/provider/prov/movie_provider.dart';
+import 'package:ticketsnow/provider/prov/movie_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
