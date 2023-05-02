@@ -17,7 +17,8 @@ class _FirelogState extends State<Firelog> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(fit:BoxFit.fill,
+            image: DecorationImage(
+                fit: BoxFit.fill,
                 image: NetworkImage(
                     'https://images.unsplash.com/photo-1524055988636-436cfa46e59e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJhY2slMjBncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'))),
         child: Column(
@@ -39,6 +40,7 @@ class _FirelogState extends State<Firelog> {
               child: TextField(
                   controller: email,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.email, color: Colors.green),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide:
@@ -46,14 +48,17 @@ class _FirelogState extends State<Firelog> {
                     filled: true,
                     fillColor: Colors.grey,
                     hintStyle: TextStyle(color: Colors.pink.shade100),
-                    hintText: "email:",
+                    hintText: "Email:",
                   )),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                  obscureText: true,
+                  obscuringCharacter: '*',
                   controller: pass,
                   decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.password, color: Colors.red),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide:
