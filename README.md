@@ -37,13 +37,6 @@ Home Screen (Light)Dark ThemeNavigation DrawerAccount Page
 Movie Info & TrailerTicket CounterSelected Ticket ListMovie Events
 ****
 
-#### 📦 Download Latest Build (Android)
-
-[](https://github.com/YOUR_USERNAME/ticketsnow/releases/latest) 
-
-* **[Direct APK Download (app-release.apk)](https://github.com/YOUR_USERNAME/ticketsnow/releases/latest/download/app-release.apk)**
-* **[View All Releases](https://github.com/YOUR_USERNAME/ticketsnow/releases)**
-
 #### 🚀 Getting Started
 
 #### Prerequisites
@@ -88,3 +81,10 @@ Copy code text to clipboard.
 * **Author:** Novin Davis
 * **Mentorship & Training:** Luminar Technolab
 * **Design Inspirations:** BookMyShow & TicketsNew
+
+#### 📦 Download Latest Build (Android)
+
+[](https://github.com/YOUR_USERNAME/ticketsnow/releases/tag/latest-build) 
+
+* **[Download APK (latest-build Release)](https://github.com/YOUR_USERNAME/ticketsnow/releases/tag/latest-build)**
+* **[View All Releases](https://github.com/YOUR_USERNAME/ticketsnow/releases)**
