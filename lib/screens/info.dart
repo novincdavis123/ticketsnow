@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ticketsnow/provider/screens/homescreen.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class Info extends StatefulWidget {
+  const Info({super.key});
+
   @override
   State<Info> createState() => _InfoState();
 }
@@ -107,13 +109,13 @@ class _InfoState extends State<Info> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
+                              SizedBox(
+                                height: 100,
                                 child: CircleAvatar(
                                   radius: 50,
                                   backgroundImage:
                                       AssetImage(product["im"][index]),
                                 ),
-                                height: 100,
                               ),
                               Text(
                                 product["cast"][index],

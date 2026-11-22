@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketsnow/provider/prov/movie_provider.dart';
 import 'package:ticketsnow/provider/screens/mylist.dart';
 
 class HomeScreenprovider extends StatefulWidget {
-  const HomeScreenprovider({Key? key}) : super(key: key);
+  const HomeScreenprovider({super.key});
 
   @override
   _HomeScreenproviderState createState() => _HomeScreenproviderState();

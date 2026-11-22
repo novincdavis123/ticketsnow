@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthHelper {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  get user => auth.currentUser;
+  User? get user => auth.currentUser;
 
   //signup
   Future<String?> signup(

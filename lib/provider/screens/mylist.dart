@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketsnow/provider/prov/movie_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyListScreen extends StatefulWidget {
-  const MyListScreen({Key? key}) : super(key: key);
+  const MyListScreen({super.key});
 
   @override
   _MyListScreenState createState() => _MyListScreenState();
@@ -13,16 +13,16 @@ class MyListScreen extends StatefulWidget {
 class _MyListScreenState extends State<MyListScreen> {
   @override
   Widget build(BuildContext context) {
-    final _myList = context.watch<MovieProvider>().myList;
+    final myList = context.watch<MovieProvider>().myList;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("My List (${_myList.length})"),
+        title: Text("My List (${myList.length})"),
       ),
       body: ListView.builder(
-          itemCount: _myList.length,
+          itemCount: myList.length,
           itemBuilder: (_, index) {
-            final currentMovie = _myList[index];
+            final currentMovie = myList[index];
             return Card(
               key: ValueKey(currentMovie.title),
               elevation: 4,

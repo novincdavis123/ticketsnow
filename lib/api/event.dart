@@ -1,11 +1,13 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
 class Event extends StatelessWidget {
-  fetchMovies() async {
-    var url;
+  const Event({super.key});
+
+  Future<dynamic> fetchMovies() async {
+    http.Response url;
     url = await http.get(Uri.parse(
         "https://api.themoviedb.org/3/movie/now_playing?api_key=1500496dcaf1512b62894bd98ba83f9d&language=en-US"));
     return json.decode(url.body)['results'];
@@ -60,36 +62,34 @@ class Event extends StatelessWidget {
                         child: InkWell(
                           onTap: () => launchUrl(
                               Uri.parse('https://www.ticketnew.com/')),
-                          child: Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 20.0,
-                                ),
-                                Text(
-                                  snapshot.data[index]["original_title"],
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  snapshot.data[index]["release_date"],
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              Text(
+                                snapshot.data[index]["original_title"],
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                snapshot.data[index]["release_date"],
+                                style: TextStyle(color: Color(0xff868597)),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              SizedBox(
+                                height: 100,
+                                child: Text(
+                                  snapshot.data[index]["overview"],
                                   style: TextStyle(color: Color(0xff868597)),
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  child: Text(
-                                    snapshot.data[index]["overview"],
-                                    style: TextStyle(color: Color(0xff868597)),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

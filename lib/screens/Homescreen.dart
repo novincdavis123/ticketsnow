@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ticketsnow/api/event.dart';
 import 'package:ticketsnow/screens/accounttab.dart';
 import 'package:ticketsnow/screens/hometab.dart';
@@ -12,50 +11,41 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final tabs = [
-    SizedBox(height: 800, width: 500, child: Homepage()),
-    SizedBox(height: 820, width: 500, child: Event()),
-    SizedBox(height: 800, width: 500, child: Account()),
+  final tabs = const [
+    Homepage(),
+    Event(),
+    Account(),
   ];
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverList(
-                delegate: SliverChildListDelegate([
-              tabs[_selectedIndex],
-            ]))
-          ],
-        ),
-
-        bottomNavigationBar: FlashyTabBar(
-          backgroundColor: Colors.black,
-          selectedIndex: _selectedIndex,
-          showElevation: true,
-          onItemSelected: (index) => setState(() {
-            _selectedIndex = index;
-          }),
-          items: [
-            FlashyTabBarItem(
-              activeColor: Colors.pink,
-              icon: Icon(Icons.home),
-              title: Text('Home'),
-            ),
-            FlashyTabBarItem(
-              activeColor: Colors.pink,
-              icon: Icon(Icons.video_file_sharp),
-              title: Text('Events'),
-            ),
-            FlashyTabBarItem(
-              activeColor: Colors.pink,
-              icon: Icon(Icons.account_box_outlined),
-              title: Text('Account'),
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: tabs[_selectedIndex],
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.black,
+        indicatorColor: Colors.pink.withValues(alpha: 0.25),
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (index) => setState(() {
+          _selectedIndex = index;
+        }),
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined, color: Colors.white70),
+            selectedIcon: Icon(Icons.home, color: Colors.pink),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.video_file_outlined, color: Colors.white70),
+            selectedIcon: Icon(Icons.video_file_sharp, color: Colors.pink),
+            label: 'Events',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.account_box_outlined, color: Colors.white70),
+            selectedIcon: Icon(Icons.account_box, color: Colors.pink),
+            label: 'Account',
+          ),
+        ],
       ),
     );
   }

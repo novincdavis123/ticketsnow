@@ -1,12 +1,9 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ticketsnow/screens/dummy_movies.dart';
-import 'package:advanced_search/advanced_search.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../db/firebaseaccount/FireHelper.dart';
-import '../db/firebaseaccount/log.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,6 +14,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   bool Switchval = false;
+
   final List<String> searchableList = [
     "Avatar",
     "Bahubali",
@@ -60,7 +58,7 @@ class _HomepageState extends State<Homepage> {
               Switch(
                   onChanged: (bool value) {
                     setState(() {
-                      this.Switchval = value;
+                      Switchval = value;
                     });
                     if (Switchval == false) {
                       AdaptiveTheme.of(context).setLight();
@@ -68,54 +66,44 @@ class _HomepageState extends State<Homepage> {
                       AdaptiveTheme.of(context).setDark();
                     }
                   },
-                  value: this.Switchval),
+                  value: Switchval),
             ],
           ),
           SliverList(
               delegate: SliverChildListDelegate([
             Container(
               margin: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
-              child: AdvancedSearch(
-                searchItems: searchableList,
-                maxElementsToDisplay: 10,
-                singleItemHeight: 50,
-                borderColor: Colors.grey,
-                minLettersForSearch: 0,
-                selectedTextColor: Color(0xFF3363D9),
-                fontSize: 14,
-                borderRadius: 12.0,
-                hintText: 'Search Me',
-                cursorColor: Colors.blueGrey,
-                autoCorrect: false,
-                focusedBorderColor: Colors.blue,
-                searchResultsBgColor: Color(0xFAFAFA),
-                disabledBorderColor: Colors.cyan,
-                enabledBorderColor: Colors.black,
-                enabled: true,
-                caseSensitive: false,
-                inputTextFieldBgColor: Colors.white10,
-                clearSearchEnabled: true,
-                itemsShownAtStart: 10,
-                searchMode: SearchMode.CONTAINS,
-                showListOfResults: true,
-                unSelectedTextColor: Colors.black54,
-                verticalPadding: 10,
-                horizontalPadding: 10,
-                hideHintOnTextInputFocus: true,
-                hintTextColor: Colors.grey,
-                searchItemsWidget: searchWidget,
-                onItemTap: (index, value) {
-                  print("selected item Index is $index");
+              child: SearchAnchor.bar(
+                barHintText: 'Search Me',
+                barLeading: const Icon(Icons.search, color: Colors.blueGrey),
+                barShape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                    side: const BorderSide(color: Colors.grey),
+                  ),
+                ),
+                onSubmitted: (value) {
+                  debugPrint("Submitted: $value");
                 },
-                onSearchClear: () {
-                  print("Cleared Search");
-                },
-                onSubmitted: (value, value2) {
-                  print("Submitted: " + value);
-                },
-                onEditingProgress: (value, value2) {
-                  print("TextEdited: " + value);
-                  print("LENGTH: " + value2.length.toString());
+                suggestionsBuilder: (context, controller) {
+                  final query = controller.text.toLowerCase();
+                  final matches = searchableList
+                      .where((item) => item.toLowerCase().contains(query))
+                      .toList();
+
+                  return List<ListTile>.generate(matches.length, (index) {
+                    final item = matches[index];
+                    return ListTile(
+                      title: Text(
+                        item,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                      onTap: () {
+                        debugPrint("Selected item: $item");
+                        controller.closeView(item);
+                      },
+                    );
+                  });
                 },
               ),
             ),
@@ -144,7 +132,7 @@ class _HomepageState extends State<Homepage> {
                 initialPage: 2,
               ),
             ),
-            Container(
+            SizedBox(
               height: height * 0.03,
               width: double.infinity,
               child: ListTile(
@@ -193,98 +181,40 @@ class _HomepageState extends State<Homepage> {
       ),
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.orange.shade300, Colors.red.shade900])),
-          child: ListView(children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1400&q=60"),
-                ),
-                title: Text("Alan Paul"),
-                subtitle: Text("alanpaul@gmail.com"),
+          margin: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
+          child: SearchAnchor.bar(
+            barHintText: 'Search Me',
+            barLeading: const Icon(Icons.search, color: Colors.blueGrey),
+            barShape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.0),
+                side: const BorderSide(color: Colors.grey),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 30),
-              child: ListTile(
-                leading: Icon(Icons.space_dashboard_outlined),
-                title: Text('Dashboard'),
-              ),
-            ),
-            ExpansionTile(
-                title: Text('Languages', style: TextStyle(color: Colors.red)),
-                children: [
-                  ListTile(
-                    onTap: () async {
-                      context.locale = Locale('en', 'US');
-                    },
-                    title: Text('English'),
+            onSubmitted: (value) {
+              debugPrint("Submitted: $value");
+            },
+            suggestionsBuilder: (context, controller) {
+              final query = controller.text.toLowerCase();
+              final matches = searchableList
+                  .where((item) => item.toLowerCase().contains(query))
+                  .toList();
+
+              return List<ListTile>.generate(matches.length, (index) {
+                final item = matches[index];
+                return ListTile(
+                  title: Text(
+                    item,
+                    style: const TextStyle(fontSize: 14),
                   ),
-                  ListTile(
-                    onTap: () async {
-                      context.locale = Locale('en', 'GB');
-                    },
-                    title: Text('Malayalam'),
-                  ),
-                  ListTile(
-                    onTap: () async {
-                      context.locale = Locale('en', 'HI');
-                    },
-                    title: Text('Hindi'),
-                  ),
-                ]),
-            const ListTile(
-              leading: Icon(Icons.people_outline),
-              title: Text('Clients'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.rocket_launch),
-              title: Text('Projects'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.man),
-              title: Text('Patients'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.subscriptions),
-              title: Text('Subscription'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.payments),
-              title: Text('Payments'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.supervised_user_circle_outlined),
-              title: Text('Users'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.local_library_outlined),
-              title: Text('Library'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                  ),
-                  onPressed: () {
-                    AuthHelper().signOut().then((_) =>
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Firelog())));
+                  onTap: () {
+                    debugPrint("Selected item: $item");
+                    controller.closeView(item);
                   },
-                  child: const Text('Log out')),
-            ),
-          ]),
+                );
+              });
+            },
+          ),
         ),
       ),
     );

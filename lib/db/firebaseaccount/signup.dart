@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ticketsnow/db/firebaseaccount/FireHelper.dart';
 import 'package:ticketsnow/db/firebaseaccount/log.dart';
 
 class Log extends StatefulWidget {
+  const Log({super.key});
+
   @override
   State<Log> createState() => _LogState();
 }

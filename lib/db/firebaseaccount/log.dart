@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ticketsnow/db/firebaseaccount/FireHelper.dart';
 import 'package:ticketsnow/db/firebaseaccount/signup.dart';
 import 'package:ticketsnow/screens/Homescreen.dart';
 
 class Firelog extends StatefulWidget {
+  const Firelog({super.key});
+
   @override
   State<Firelog> createState() => _FirelogState();
 }

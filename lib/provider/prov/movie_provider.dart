@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:material_ui/material_ui.dart';
 import '../models/movie.dart';
 
 // A list of movies
