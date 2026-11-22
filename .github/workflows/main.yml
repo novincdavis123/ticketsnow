@@ -1,27 +1,36 @@
+# Workflow name shown in the GitHub Actions tab
 name: Build Flutter App
 
+# Events that trigger this workflow
 on:
+  # 1. Build and publish a new APK whenever code is pushed to the 'releases' branch
   push:
     branches:
       - releases
+  # 2. Run a lightweight job every 5 days (must exist on the default branch 'master')
+  #    to keep GitHub's 7-day cache expiration timer from deleting cached SDKs
   schedule:
-    # Runs every 5 days at 02:30 UTC (08:00 AM IST) to refresh the 7-day cache timer
-    - cron: '30 2 */5 * *'
+    - cron: '30 2 */5 * *' # Runs at 02:30 UTC (08:00 AM IST) every 5 days
 
+# Grant permission to create/update GitHub Releases and upload APK assets
 permissions:
   contents: write
 
+# Global environment variables available across all steps
 env:
   APP_NAME: ticketsnow
 
 jobs:
   build_android:
+    # Use Ubuntu 24.04 (comes with Android API 36 and common build tools pre-installed)
     runs-on: ubuntu-24.04
 
     steps:
+      # 1. Download your repository code onto the runner
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      # 2. Install Java 21 (required by Android Gradle Plugin 9+) and cache Gradle dependencies
       - name: Set up Java
         uses: actions/setup-java@v6
         with:
@@ -29,6 +38,7 @@ jobs:
           java-version: '21'
           cache: 'gradle'
 
+      # 3. Install Flutter 3.50.0 and automatically cache both the Flutter SDK and ~/.pub-cache
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -36,11 +46,15 @@ jobs:
           channel: 'stable'
           cache: true
 
+      # 4. Change ownership of NDK & CMake folders from 'root' to 'runner'
+      #    so tar can restore cached files without "Operation not permitted" errors
       - name: Grant ownership of NDK & CMake directories
         run: |
           sudo mkdir -p /usr/local/lib/android/sdk/{ndk,cmake}
           sudo chown -R runner:runner /usr/local/lib/android/sdk/{ndk,cmake}
 
+      # 5. Cache Android NDK 28.2 and CMake 3.22.1 so they aren't re-downloaded on every build
+      #    Cache key automatically updates if either build.gradle.kts file changes
       - name: Cache Android NDK & CMake
         uses: actions/cache@v4
         with:
@@ -51,13 +65,16 @@ jobs:
           restore-keys: |
             android-ndk-cmake-${{ runner.os }}-ndk28-
 
+      # 6. Fetch Dart/Flutter packages from pubspec.yaml (fast because ~/.pub-cache is cached)
       - name: Install dependencies
         run: flutter pub get
 
+      # 7. Compile the release APK (skipped during 5-day scheduled cache-warmer runs)
       - name: Build Android APK
         if: github.event_name == 'push'
         run: flutter build apk --release --android-skip-build-dependency-validation
 
+      # 8. Copy and rename app-release.apk with the current IST date (e.g., ticketsnow_Nov_22.apk)
       - name: Rename APK with Month and Day
         if: github.event_name == 'push'
         id: rename_apk
@@ -68,7 +85,7 @@ jobs:
           echo "apk_name=${NEW_NAME}" >> $GITHUB_OUTPUT
           echo "apk_path=build/app/outputs/flutter-apk/${NEW_NAME}" >> $GITHUB_OUTPUT
 
-      # Option A: Save build inside the GitHub Actions run summary (unzipped)
+      # 9. Attach the APK as a downloadable artifact inside the GitHub Actions run summary
       - name: Upload Build Artifact
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v7
@@ -77,7 +94,7 @@ jobs:
           path: ${{ steps.rename_apk.outputs.apk_path }}
           archive: false
 
-      # Option B: Publish/overwrite the latest build on the Releases page
+      # 10. Publish or overwrite the APK under the 'latest-build' tag on the GitHub Releases page
       - name: Update Latest Release
         if: github.event_name == 'push'
         uses: softprops/action-gh-release@v3
