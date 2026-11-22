@@ -33,6 +33,11 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Grant write permissions to Android SDK directories
+        run: |
+          sudo mkdir -p /usr/local/lib/android/sdk/{ndk,cmake,platforms,build-tools}
+          sudo chmod -R a+rwx /usr/local/lib/android/sdk/{ndk,cmake,platforms,build-tools}
+
       - name: Cache Android SDK, NDK & CMake
         uses: actions/cache@v4
         with:
@@ -41,9 +46,9 @@ jobs:
             /usr/local/lib/android/sdk/cmake/3.22.1
             /usr/local/lib/android/sdk/platforms/android-36
             /usr/local/lib/android/sdk/build-tools/36.*
-          key: android-sdk-${{ runner.os }}-ndk28-api36-${{ hashFiles('android/app/build.gradle.kts', 'android/build.gradle.kts') }}
+          key: android-sdk-v2-${{ runner.os }}-ndk28-api36-${{ hashFiles('android/app/build.gradle.kts', 'android/build.gradle.kts') }}
           restore-keys: |
-            android-sdk-${{ runner.os }}-ndk28-api36-
+            android-sdk-v2-${{ runner.os }}-ndk28-api36-
 
       - name: Install dependencies
         run: flutter pub get
