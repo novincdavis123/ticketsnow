@@ -84,7 +84,7 @@ Copy code text to clipboard.
 
 #### 📦 Download Latest Build (Android)
 
-[](https://github.com/YOUR_USERNAME/ticketsnow/releases/tag/latest-build) 
+[](https://github.com/novincdavis123/ticketsnow/releases/tag/latest-build) 
 
-* **[Download APK (latest-build Release)](https://github.com/YOUR_USERNAME/ticketsnow/releases/tag/latest-build)**
-* **[View All Releases](https://github.com/YOUR_USERNAME/ticketsnow/releases)**
+* **[Download APK (latest-build Release)](https://github.com/novincdavis123/ticketsnow/releases/tag/latest-build)**
+* **[View All Releases](https://github.com/novincdavis123/ticketsnow/releases)**
