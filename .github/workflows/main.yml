@@ -37,13 +37,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            /usr/local/lib/android/sdk/ndk
-            /usr/local/lib/android/sdk/cmake
-            /usr/local/lib/android/sdk/platforms
-            /usr/local/lib/android/sdk/build-tools
-          key: android-sdk-${{ runner.os }}-${{ hashFiles('android/app/build.gradle.kts', 'android/build.gradle.kts') }}
+            /usr/local/lib/android/sdk/ndk/28.2.*
+            /usr/local/lib/android/sdk/cmake/3.22.1
+            /usr/local/lib/android/sdk/platforms/android-36
+            /usr/local/lib/android/sdk/build-tools/36.*
+          key: android-sdk-${{ runner.os }}-ndk28-api36-${{ hashFiles('android/app/build.gradle.kts', 'android/build.gradle.kts') }}
           restore-keys: |
-            android-sdk-${{ runner.os }}-
+            android-sdk-${{ runner.os }}-ndk28-api36-
 
       - name: Install dependencies
         run: flutter pub get
