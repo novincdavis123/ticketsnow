@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - releases
+  schedule:
+    # Runs every 5 days at 02:30 UTC (08:00 AM IST) to refresh the 7-day cache timer
+    - cron: '30 2 */5 * *'
 
 permissions:
   contents: write
@@ -54,9 +57,11 @@ jobs:
         run: flutter pub get
 
       - name: Build Android APK
+        if: github.event_name == 'push'
         run: flutter build apk --release --android-skip-build-dependency-validation
 
       - name: Rename APK with Month and Day
+        if: github.event_name == 'push'
         id: rename_apk
         run: |
           DATE_STR=$(TZ='Asia/Kolkata' date +'%b_%d')
@@ -67,6 +72,7 @@ jobs:
 
       # Option A: Save build inside the GitHub Actions run summary (unzipped)
       - name: Upload Build Artifact
+        if: github.event_name == 'push'
         uses: actions/upload-artifact@v7
         with:
           name: ${{ steps.rename_apk.outputs.apk_name }}
@@ -75,6 +81,7 @@ jobs:
 
       # Option B: Publish/overwrite the latest build on the Releases page
       - name: Update Latest Release
+        if: github.event_name == 'push'
         uses: softprops/action-gh-release@v3
         with:
           tag_name: latest-build
