@@ -1,52 +1,90 @@
-# ticketsnow
+#### 📖 Overview
 
-This is a Movie Ticket booking App created by Novin Davis with the help of Luminar Technolab.
-![ic_launcher](https://user-images.githubusercontent.com/121224845/234852272-ebf505a6-8cbc-45b2-bbf7-d2e4be483811.png)
+**TicketsNow** is a feature-rich movie and event ticket booking application inspired by platforms like BookMyShow and TicketsNew. Created by **Novin Davis** with guidance from **Luminar Technolab**, the app lets users browse recommended movies, watch trailers, select seats, manage their ticket cart, switch between light and dark themes, and localize the interface across multiple languages. 
 
-# Credits
+#### ✨ Key Features
 
-![1682594557814](https://user-images.githubusercontent.com/121224845/234848796-b5363647-5062-4a9c-abb0-03dec9ae1078.jpg)
+* **🔐 Firebase Authentication:** Secure user registration and login flows powered by Firebase Auth.
+* **🎬 Movie Discovery & Trailers:** Browse featured banners, search titles in real time, and view movie synopses, cast details, and embedded YouTube trailers.
+* **🎟️ Interactive Seat & Ticket Counter:** Select seats with live pricing calculation, review selected tickets in a dedicated cart (My List), and proceed to payment.
+* **🌗 Dynamic Light & Dark Mode:** Instant theme switching across the entire app powered by adaptive_theme.
+* **🌍 Multi-Language Support:** Built-in localization (en_US, en_GB, en_HI) via easy_localization.
+* **🎉 Movie Events & Account Management:** Dedicated tabs for upcoming live events and user profile settings.
 
-# Splash Screen
-![1682594557808](https://user-images.githubusercontent.com/121224845/234848911-95949632-8dc4-415e-bb80-9101dad41056.jpg)
+#### 🛠️ Tech Stack
 
-# Registration Screen
+* **Framework:** Flutter 3.50.0 / Dart 3.14.0
+* **UI System:** Material 3 (material_ui)
+* **Backend & Auth:** Firebase Core & Firebase Authentication
+* **State Management:** Provider (ChangeNotifier)
+* **Theming & Localization:** adaptive_theme, easy_localization
+* **Media & Navigation:** carousel_slider, youtube_player_flutter, flame_splash_screen, url_launcher
 
-![1682659366640](https://user-images.githubusercontent.com/121224845/235061468-a4778843-62b0-4ceb-ad41-77dc5e7ff676.jpg)
+#### 📱 Screenshots
 
-# Login Screen
+#### Onboarding & Authentication
 
-![1682659366633](https://user-images.githubusercontent.com/121224845/235061561-525b90c4-7fbe-4a72-ba5a-48f629eb51c9.jpg)
+Splash ScreenCreditsLogin ScreenRegistration Screen
+****
 
+#### Home, Navigation & Themes
 
-# Home Screen
+Home Screen (Light)Dark ThemeNavigation DrawerAccount Page
+****
 
-![1682594557789](https://user-images.githubusercontent.com/121224845/234849375-dd6af8e6-bf76-46fa-a11b-2b9dbc0f1e2b.jpg)
+#### Movie Details, Booking & Events
 
-# Drawer
-![1682594557782](https://user-images.githubusercontent.com/121224845/234849518-b1feaa39-583f-44ca-94f0-03e3c73d1cb1.jpg)
+Movie Info & TrailerTicket CounterSelected Ticket ListMovie Events
+****
 
-# Info page
+#### 📦 Download Latest Build (Android)
 
-![1682594557775](https://user-images.githubusercontent.com/121224845/234849877-a7772d77-2295-49d3-8241-372157c2b2e9.jpg)
+[](https://github.com/YOUR_USERNAME/ticketsnow/releases/latest) 
 
-# Ticket Booking Page
+* **[Direct APK Download (app-release.apk)](https://github.com/YOUR_USERNAME/ticketsnow/releases/latest/download/app-release.apk)**
+* **[View All Releases](https://github.com/YOUR_USERNAME/ticketsnow/releases)**
 
-![1682594557769](https://user-images.githubusercontent.com/121224845/234849952-039e9206-14b6-4d99-ace3-51ef2e7704a3.jpg)
+#### 🚀 Getting Started
 
-# Ticket List
+#### Prerequisites
 
-![1682594557762](https://user-images.githubusercontent.com/121224845/234850232-db7328a6-5f04-4898-a68a-9a3bc9b078aa.jpg)
+* [Flutter SDK](https://docs.flutter.dev/get-started/install) (3.50.0 or newer, or managed via [FVM](https://fvm.app/))
+* Android Studio / VS Code with Android SDK (compileSdk 36)
+* A configured Firebase project (google-services.json placed in android/app/)
 
-# Movie Events
+#### Installation & Run
 
-![1682594557750](https://user-images.githubusercontent.com/121224845/234850364-fc82b1d1-9eed-4141-bd45-6781e8e04bb5.jpg)
+1. **Clone the repository:** 
 
-# Dark Theme
+bash
 
-![1682594557737](https://user-images.githubusercontent.com/121224845/234851157-a3c57d42-a443-476d-b38c-c0eecdac3a75.jpg)
+git clone https://github.com/YOUR_USERNAME/ticketsnow.git
+cd ticketsnow
 
-# Account Page
+Use code with caution.
 
-![1682594557710](https://user-images.githubusercontent.com/121224845/234850997-5c1720f6-9a80-4e46-9ead-ff2e56ab7be0.jpg)
+Copy code text to clipboard.
+2. **Install dependencies:** 
 
+bash
+
+flutter pub get
+
+Use code with caution.
+
+Copy code text to clipboard.
+3. **Run the application:** 
+
+bash
+
+flutter run
+
+Use code with caution.
+
+Copy code text to clipboard.
+
+#### 🙏 Acknowledgments
+
+* **Author:** Novin Davis
+* **Mentorship & Training:** Luminar Technolab
+* **Design Inspirations:** BookMyShow & TicketsNew

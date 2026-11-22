@@ -1,0 +1,65 @@
+name: Build Flutter App
+
+on:
+  push:
+    branches:
+      - releases
+
+permissions:
+  contents: write
+
+env:
+  APP_NAME: medcart
+
+jobs:
+  build_android:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.50.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Android APK
+        run: flutter build apk --release --android-skip-build-dependency-validation
+
+      - name: Rename APK with Month and Day
+        id: rename_apk
+        run: |
+          DATE_STR=$(TZ='Asia/Kolkata' date +'%b_%d')
+          NEW_NAME="${APP_NAME}_${DATE_STR}.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "build/app/outputs/flutter-apk/${NEW_NAME}"
+          echo "apk_name=${NEW_NAME}" >> $GITHUB_OUTPUT
+          echo "apk_path=build/app/outputs/flutter-apk/${NEW_NAME}" >> $GITHUB_OUTPUT
+
+      # Option A: Save build inside the GitHub Actions run summary (unzipped)
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.rename_apk.outputs.apk_name }}
+          path: ${{ steps.rename_apk.outputs.apk_path }}
+          archive: false
+
+      # Option B: Publish/overwrite the latest build on the Releases page
+      - name: Update Latest Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: latest-build
+          name: Latest Build (${{ github.ref_name }})
+          files: ${{ steps.rename_apk.outputs.apk_path }}
