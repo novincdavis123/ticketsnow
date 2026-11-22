@@ -181,39 +181,75 @@ class _HomepageState extends State<Homepage> {
       ),
       drawer: Drawer(
         child: Container(
-          margin: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
-          child: SearchAnchor.bar(
-            barHintText: 'Search Me',
-            barLeading: const Icon(Icons.search, color: Colors.blueGrey),
-            barShape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                side: const BorderSide(color: Colors.grey),
-              ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.orange.shade300, Colors.red.shade900],
             ),
-            onSubmitted: (value) {
-              debugPrint("Submitted: $value");
-            },
-            suggestionsBuilder: (context, controller) {
-              final query = controller.text.toLowerCase();
-              final matches = searchableList
-                  .where((item) => item.toLowerCase().contains(query))
-                  .toList();
-
-              return List<ListTile>.generate(matches.length, (index) {
-                final item = matches[index];
-                return ListTile(
-                  title: Text(
-                    item,
-                    style: const TextStyle(fontSize: 14),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      "https://unsplash.com",
+                    ),
                   ),
-                  onTap: () {
-                    debugPrint("Selected item: $item");
-                    controller.closeView(item);
-                  },
-                );
-              });
-            },
+                  title: Text("Alan Paul"),
+                  subtitle: Text("alanpaul@gmail.com"),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                child: SizedBox(
+                  height: 50,
+                  child: SearchAnchor.bar(
+                    barHintText: 'Search Me',
+                    barLeading:
+                        const Icon(Icons.search, color: Colors.blueGrey),
+                    barShape: WidgetStatePropertyAll(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        side: const BorderSide(color: Colors.grey),
+                      ),
+                    ),
+                    onSubmitted: (value) {
+                      debugPrint("Submitted: $value");
+                    },
+                    suggestionsBuilder: (context, controller) {
+                      final query = controller.text.toLowerCase();
+                      final matches = searchableList
+                          .where((item) => item.toLowerCase().contains(query))
+                          .toList();
+
+                      return List<ListTile>.generate(matches.length, (index) {
+                        final item = matches[index];
+                        return ListTile(
+                          title: Text(
+                            item,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                          onTap: () {
+                            debugPrint("Selected item: $item");
+                            controller.closeView(item);
+                          },
+                        );
+                      });
+                    },
+                  ),
+                ),
+              ),
+              const ListTile(
+                leading: Icon(Icons.space_dashboard_outlined),
+                title: Text('Dashboard'),
+              ),
+              // Keep the rest of your ExpansionTile and drawer items here...
+            ],
           ),
         ),
       ),
