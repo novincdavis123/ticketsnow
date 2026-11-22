@@ -11,10 +11,8 @@ class HomeScreenprovider extends StatefulWidget {
 }
 
 class _HomeScreenproviderState extends State<HomeScreenprovider> {
-
   @override
   Widget build(BuildContext context) {
-
     var movies = context.watch<MovieProvider>().movies;
     var myList = context.watch<MovieProvider>().myList;
 
@@ -35,7 +33,10 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                   ),
                 );
               },
-              icon: const Icon(Icons.check_box_outline_blank,color: Colors.green,),
+              icon: const Icon(
+                Icons.check_box_outline_blank,
+                color: Colors.green,
+              ),
               label: Text(
                 "Booked Tickets (${myList.length})",
                 style: const TextStyle(fontSize: 24),
@@ -63,7 +64,8 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                             elevation: 4,
                             child: ListTile(
                               title: Text(currentMovie.title),
-                              subtitle: Text(currentMovie.runtime ?? 'No information'),
+                              subtitle: Text(
+                                  currentMovie.runtime ?? 'No information'),
                               trailing: IconButton(
                                 icon: Icon(
                                   Icons.check_box_outline_blank,
@@ -74,9 +76,13 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                                 ),
                                 onPressed: () {
                                   if (!myList.contains(currentMovie)) {
-                                    context.read<MovieProvider>().addToList(currentMovie);
+                                    context
+                                        .read<MovieProvider>()
+                                        .addToList(currentMovie);
                                   } else {
-                                    context.read<MovieProvider>().removeFromList(currentMovie);
+                                    context
+                                        .read<MovieProvider>()
+                                        .removeFromList(currentMovie);
                                   }
                                 },
                               ),
